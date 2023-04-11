@@ -30,7 +30,7 @@ useEffect(()=>{
         <div className="results">
         {
         todos?.map((todo,i)=>{
-            if(todo.nota === ''){
+            if(todo.nota > 100 || todo.nota === '' ){
             
             }else{
                 return(

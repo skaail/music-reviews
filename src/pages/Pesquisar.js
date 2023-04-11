@@ -36,7 +36,7 @@ function Pesquisar() {
               link:link,
               logo: logo,
               aberto: true,
-              nota: ''
+              nota: 100
             });
             console.log("Document written with ID: ", docRef.id);
           } catch (e) {

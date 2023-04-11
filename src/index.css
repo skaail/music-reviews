@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #222222;
-  color: #F3EFE0;
+  background-color: #222222 !important;
+  color: #F3EFE0 !important; 
  
 }
 
@@ -22,36 +22,36 @@ code {
 }
 
 nav{
-  padding: 25px;
-  border-right: 1px solid #171717;
+  padding: 25px !important;
+  border-right: 1px solid #171717 !important;
 }
 
 .Links{
-  display: flex;
-  gap: 35px;
-  flex-direction: column;
+  display: flex !important;
+  gap: 35px !important;
+  flex-direction: column !important;
 }
 
 a{
-  text-decoration: none;
-  color: #F3EFE0;
+  text-decoration: none !important;
+  color: #F3EFE0 !important;
 }
 
 .Layout{
-  padding: 20px;
+  padding: 20px !important;
 }
 
 .results{
-  margin-top: 25px;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+  margin-top: 25px !important;
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
 }
 
 
 .album{
-  display: flex;
-  width: 290px;
-  flex-direction: column;
-  cursor: pointer;
+  display: flex !important;
+  width: 290px !important;
+  flex-direction: column !important;
+  cursor: pointer !important;
 }
