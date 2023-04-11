@@ -59,6 +59,7 @@ function Pesquisar() {
     var returnAlbums = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=album&limit=20', artistParameters)
     .then(response => response.json())
     .then(async data => {
+        setAlbums([])
         for(let i = 0; i < data.albums.items.length; i++){
             setAlbums(oldArray => [...oldArray, data.albums.items[i]]);
         }

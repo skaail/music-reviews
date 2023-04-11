@@ -1,0 +1,74 @@
+import React from 'react'
+import { collection, getDocs, updateDoc , doc } from "firebase/firestore";
+import {db} from '../firebase';
+import { useState, useEffect} from 'react'
+
+
+function TableNotListened() {
+  const [todos, setTodos] = useState([]);
+  const [album, setAlbum] = useState("")
+  const [albumID, setAlbumID] = useState("")
+
+  const [nota, setNota] = useState('')
+
+  const [show, setShow] = useState(false);
+
+  const fetchPost = async () => {
+       
+    await getDocs(collection(db, "todos"))
+        .then((querySnapshot)=>{               
+            const newData = querySnapshot.docs
+                .map((doc) => ({...doc.data(), id:doc.id }));
+            setTodos(newData);                
+            console.log(todos, newData);
+        })
+   
+}
+
+useEffect(()=>{
+    fetchPost();
+}, [])
+
+const handleClose = () => {
+  setShow(false)
+};
+
+const handleSave = async (e) => {
+  const albumref = doc(db, "todos", albumID);
+
+  await updateDoc(albumref, {
+    nota: nota
+  });
+  setShow(false)
+  window.location.reload(false);
+};
+
+const handleShow = () => {
+  setShow(true)
+};
+  return (
+    <>
+        <div className="results">
+            {
+            todos?.map((todo,i)=>{
+                if(todo.nota === ''){
+                return(
+                    <div className="results">
+                        <div className='album' key={todo.id}>
+                            <img src={todo.logo}></img>
+                            {todo.name}
+                            <br></br>
+                            {todo.band}
+                        </div>
+                </div>
+                )
+                }else{}
+            })
+            } 
+        </div>
+    </>
+
+  )
+}
+
+export default TableNotListened
