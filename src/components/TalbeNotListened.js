@@ -1,10 +1,11 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { collection, getDocs, updateDoc , doc } from "firebase/firestore";
+import { collection, getDocs, updateDoc , doc, deleteDoc } from "firebase/firestore";
 import {db} from '../firebase';
 import { Container, InputGroup, FormControl, Button } from 'react-bootstrap'
 import { useState, useEffect} from 'react'
 import Modal from 'react-bootstrap/Modal';
+
 
 function TableNotListened() {
   const [todos, setTodos] = useState([]);
@@ -33,6 +34,17 @@ useEffect(()=>{
 
 const handleClose = () => {
   setShow(false)
+};
+
+const handleDelete = async (e) => {
+
+  const albumref = doc(db, "todos", albumID);
+
+  await deleteDoc(albumref, {
+  });
+  setShow(false)
+  window.location.reload(false);
+  
 };
 
 const handleSave = async (e) => {
@@ -69,6 +81,9 @@ const handleShow = () => {
         <Button variant="secondary" onClick={handleClose}>
           Fechar
         </Button>
+        <Button variant="secondary" onClick={handleDelete}>
+          Deletar
+        </Button>
         <Button variant="primary" onClick={handleSave}>
           Salvar
         </Button>
@@ -92,6 +107,8 @@ const handleShow = () => {
             })
             } 
         </div>
+
+        
     </>
 
   )
