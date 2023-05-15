@@ -24,6 +24,9 @@ code {
 nav{
   padding: 25px !important;
   border-right: 1px solid #171717 !important;
+  width: 250px;
+
+  flex: 1;
 }
 
 .Links{
@@ -39,6 +42,8 @@ a{
 
 .Layout{
   padding: 20px !important;
+
+  flex: 7;
 }
 
 .results{
@@ -51,7 +56,7 @@ a{
 
 .album{
   display: flex !important;
-  width: 290px !important;
+  width: 275px !important;
   flex-direction: column !important;
   cursor: pointer !important;
 }
