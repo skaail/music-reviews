@@ -93,7 +93,7 @@ function Pesquisar() {
             <div className="results">
                 {albums.map(album => (
                     <div className='album' key={album.id} onClick={() => test(album.name, album.release_date, album.artists[0].name, album.href, album.images[0].url)}>
-                        <img src={album.images[0].url}></img>
+                        <img alt='' src={album.images[0].url}></img>
                         {album.name}
                         <br></br>
                         {album.artists[0].name}

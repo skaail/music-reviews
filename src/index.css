@@ -56,7 +56,13 @@ a{
 
 .album{
   display: flex !important;
-  width: 275px !important;
+  width: 20em !important;
   flex-direction: column !important;
   cursor: pointer !important;
+}
+
+.sugestao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
