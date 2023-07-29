@@ -30,10 +30,9 @@ function Sugestao() {
         <div className='sugestao'>
         {
             todos?.map((todo,i)=>{
-                
-                if(todo.nota === '' || todo.nota === 100){
+
+                if(todo.nota === ''){
                     if(i == rand){
-                        console.log(rand)
                         return(
                             <div className="results">
                                 <div className='album' key={todo.id}>
@@ -46,7 +45,20 @@ function Sugestao() {
                         )
                     }
 
-                }else{}
+                }else{
+                    if(i == rand+1){
+                        return(
+                            <div className="results">
+                                <div className='album' key={todo.id}>
+                                    <img src={todo.logo}></img>
+                                    {todo.name}
+                                    <br></br>
+                                    {todo.band}
+                                </div>
+                        </div>
+                        )
+                    }
+                }
             })
             } 
         </div>
