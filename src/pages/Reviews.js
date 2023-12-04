@@ -30,9 +30,8 @@ useEffect(()=>{
         <div className="results">
         {
         todos?.map((todo,i)=>{
-            if(todo.nota > 100 || todo.nota === '' ){
-            
-            }else{
+
+            if(todo.nota >= 0){
                 return(
                     <div className="results">
                         <div className='album' key={todo.id}>
@@ -45,7 +44,8 @@ useEffect(()=>{
                         </div>
                 </div>
                 )
-            }
+            }else{}
+
         })
         } 
         </div>

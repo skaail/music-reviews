@@ -92,8 +92,9 @@ const handleShow = () => {
         <div className="results">
             {
             todos?.map((todo,i)=>{
-                if(todo.nota === '' || todo.nota === 100){
-                return(
+                if(todo.nota >= 0){
+                }else{
+                  return(
                     <div className="results" onClick={() => {setAlbumID(todo.id); setAlbum(todo.name); handleShow()}}>
                         <div className='album' key={todo.id}>
                             <img src={todo.logo}></img>
@@ -103,7 +104,7 @@ const handleShow = () => {
                         </div>
                 </div>
                 )
-                }else{}
+                }
             })
             } 
         </div>
