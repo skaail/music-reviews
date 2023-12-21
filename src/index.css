@@ -42,7 +42,6 @@ a{
 
 .Layout{
   padding: 20px !important;
-
   flex: 7;
 }
 
@@ -56,7 +55,7 @@ a{
 
 .album{
   display: flex !important;
-  width: 20em !important;
+  width: 15em !important;
   flex-direction: column !important;
   cursor: pointer !important;
 }
@@ -65,4 +64,16 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.name{
+  text-align: center;
+  margin: 0px;
 }

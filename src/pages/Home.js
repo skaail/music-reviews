@@ -1,10 +1,10 @@
 import React from 'react'
-import TableNotListened from '../components/TalbeNotListened'
+import AlbumGrid from '../components/AlbumGrid'
 
 function Home() {
   return (
     <div className='Layout'>
-      <TableNotListened />
+      <AlbumGrid page='home'/>
     </div>
   )
 }
