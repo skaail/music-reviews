@@ -5,8 +5,15 @@ import Sidebar from './components/Sidebar';
 import Pesquisar from './pages/Pesquisar';
 import Sugestao from './pages/Sugestao';
 import Review from './pages/Reviews';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    document.title = "Music Review"
+  }, [])
+
+
   return (
     <main style={{display: "flex"}}>
       <BrowserRouter className="Layout">
