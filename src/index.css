@@ -41,7 +41,7 @@ a{
 }
 
 .Layout{
-  padding: 20px !important;
+  padding-left: 20px;
   flex: 7;
 }
 
@@ -55,7 +55,7 @@ a{
 
 .album{
   display: flex !important;
-  width: 15em !important;
+  width: 15%;
   flex-direction: column !important;
   cursor: pointer !important;
 }

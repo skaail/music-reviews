@@ -8,7 +8,6 @@ function Sidebar() {
             <ul><Link to={'/'}>Home</Link></ul>
             <ul><Link to={'/pesquisar'}>Pesquisar</Link></ul>
             <ul><Link to={'/reviews'}>Minhas Reviews</Link></ul>
-            <ul><Link to={'/sugestao'}>Sugestao</Link></ul>
         </div>
     </nav>
   )

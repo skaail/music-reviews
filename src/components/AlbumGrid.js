@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import {db} from '../firebase';
 import { useState, useEffect} from 'react'
 import Album from './Album';
@@ -14,7 +14,7 @@ function AlbumGrid(props) {
 
   const fetchAlbums = async () => {
        
-    await getDocs(query(collection(db, "todos"), orderBy('nota', 'desc')))
+    await getDocs(collection(db, "todos"))
         .then((querySnapshot)=>{               
             const newData = querySnapshot.docs
                 .map((doc) => ({...doc.data(), id:doc.id }));
