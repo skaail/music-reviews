@@ -4,7 +4,7 @@ function Album(props) {
 
     return (
             <div className='album' key={props.id}>
-            <img src={props.logo}></img>
+            <img src={props.logo} onClick={props.click}></img>
                 <div className='info'>
                     <p className='name'>{props.name}</p>
                     <p className='name'>{props.band}</p>

@@ -77,3 +77,44 @@ a{
   text-align: center;
   margin: 0px;
 }
+
+.modal-back{
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBody{
+  width: 30%;
+  height: 30%;
+
+  background-color: rgb(233, 235, 235);
+  border-radius: 25px;
+
+  color: black;
+}
+
+.close{
+  color: black;
+  cursor: pointer;
+  
+  margin-left: 95%;
+  margin-top: 2%;
+}
+
+.corpito{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+
+  gap: 40px;
+}

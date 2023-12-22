@@ -35,8 +35,7 @@ function Pesquisar() {
               band: band,
               link:link,
               logo: logo,
-              aberto: true,
-              nota: 100
+              aberto: true
             });
             console.log("Document written with ID: ", docRef.id);
           } catch (e) {

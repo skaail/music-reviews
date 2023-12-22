@@ -4,10 +4,13 @@ import { collection, getDocs } from "firebase/firestore";
 import {db} from '../firebase';
 import { useState, useEffect} from 'react'
 import Album from './Album';
+import ModalNota from './ModalNota';
 
 
 function AlbumGrid(props) {
   const [albums, setAlbums] = useState([]);
+  const [isOpen, setIsOpen] = useState(false)
+  const [id, setId] = useState()
 
   const fetchAlbums = async () => {
        
@@ -19,6 +22,11 @@ function AlbumGrid(props) {
             console.log(albums, newData);
         })
    
+  }
+
+  function handleOpen(e){
+    setIsOpen(true)
+    setId(e)
   }
 
   useEffect(()=>{
@@ -35,28 +43,39 @@ function AlbumGrid(props) {
                         
                     }else{
                         return(
-                            <Album id={album.id} name={album.name} band={album.band} logo={album.logo} nota={album.nota} />
+                            <Album id={album.id} name={album.name} band={album.band} logo={album.logo} nota={album.nota} click={() => {handleOpen(album)}}/>
                         )
                     }
                       
                 })
                 }
             </div>
+            {isOpen && <ModalNota setIsOpen={setIsOpen} id={id}/>}
+            
         </>
       )
   }else{
     return(
-        <div className="results">
+        <>
+
+            <div className="results">
                 {
                 albums?.map((album,i)=>{
                     if(album.nota > 0){
                         return(
-                            <Album id={album.id} name={album.name} band={album.band} logo={album.logo} nota={album.nota} />
+                            <>
+                                <Album id={album.id} name={album.name} band={album.band} logo={album.logo} nota={album.nota} />
+                            </>
+
                         )
                     }
                 })
                 }
             </div>
+
+            
+        </>
+
     )
   }
 
