@@ -76,6 +76,16 @@ a{
 .name{
   text-align: center;
   margin: 0px;
+
+
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+
+  width: 100%;
+
 }
 
 .modal-back{
