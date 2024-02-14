@@ -14,18 +14,13 @@ function ModalNota({ setIsOpen, id }) {
   const [nota, setNota] = useState()
 
   async function darNota(id){
-      const url = "https://typescript-saily-songs.onrender.com/album/" + id
-      const response = await fetch(url, {
-          method: "patch",
-          body: JSON.stringify({nota: nota}),
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Z-Key',
-            'Access-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, OPTIONS'}
-      })
-      const responseJson = await response.json()
-      console.log(responseJson)
+    const albumref = doc(db, "todos", id);
+
+    await updateDoc(albumref, {
+      nota: parseInt(nota)
+    });
+    setIsOpen(false)
+    window.location.reload(true);
   }
 
   return (

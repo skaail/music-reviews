@@ -14,10 +14,13 @@ function AlbumGrid(props) {
 
   const fetchAlbums = async () => {
        
-   fetch('https://typescript-saily-songs.onrender.com/album')
-    .then(response => response.json())
-    .then(data => setAlbums(data))
-    .catch(error => console.log(error))
+    await getDocs(collection(db, "todos"))
+        .then((querySnapshot)=>{               
+            const newData = querySnapshot.docs
+                .map((doc) => ({...doc.data(), id:doc.id }));
+            setAlbums(newData);                
+            console.log(albums, newData);
+        })
    
   }
 
@@ -40,7 +43,7 @@ function AlbumGrid(props) {
                         
                     }else{
                         return(
-                            <Album id={album.id} name={album.nome} band={album.banda} logo={album.art} nota={album.nota} click={() => {handleOpen(album)}}/>
+                            <Album id={album.id} name={album.name} band={album.band} logo={album.logo} nota={album.nota} click={() => {handleOpen(album)}}/>
                         )
                     }
                       
@@ -61,7 +64,7 @@ function AlbumGrid(props) {
                     if(album.nota > 0){
                         return(
                             <>
-                            <Album id={album.id} name={album.nome} band={album.banda} logo={album.art} nota={album.nota} click={() => {handleOpen(album)}}/>
+                                <Album id={album.id} name={album.name} band={album.band} logo={album.logo} nota={album.nota} />
                             </>
 
                         )
