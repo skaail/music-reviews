@@ -27,20 +27,17 @@ function Pesquisar() {
           .then(data => setAccessToekn(data.access_token))
     }, [])
 
-    async function test(name, data, band, link, logo){
-        try {
-            const docRef = await addDoc(collection(db, "todos"), {
-              name: name,
-              data: data,
-              band: band,
-              link:link,
-              logo: logo
-            });
-            console.log("Document written with ID: ", docRef.id);
-          } catch (e) {
-            console.error("Error adding document: ", e);
-          }
-    }
+    async function addAlbum(nome, banda, nota){
+      const url = "https://typescript-saily-songs.onrender.com/album"
+      const response = await fetch(url, {
+          method: "post",
+          body: JSON.stringify({nome: nome, banda: banda, nota: nota}),
+          headers: { "Content-Type": "application/json" }
+      })
+      const responseJson = await response.json()
+      console.log(responseJson)
+  }
+
 
 
     async function search() {
@@ -90,7 +87,7 @@ function Pesquisar() {
 
             <div className="results">
                 {albums.map(album => (
-                    <div className='album' key={album.id} onClick={() => test(album.name, album.release_date, album.artists[0].name, album.href, album.images[0].url)}>
+                    <div className='album' key={album.id} onClick={() => addAlbum(album.name, album.artists[0].name)}>
                         <img alt='' src={album.images[0].url}></img>
                         {album.name}
                         <br></br>
